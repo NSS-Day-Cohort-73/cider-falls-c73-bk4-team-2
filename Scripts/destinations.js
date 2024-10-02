@@ -50,19 +50,23 @@ document.addEventListener(
 )
 
 export const destinationList= () => {
-    let html = `<section>`
+    let html = `<section id="destinationCard">`
     
     for (const destination of destinations) {
+        html+= `<div id="serviceContainer"`
+        html += `<h2 class="title">${destination.name}</h2>`
+        html += `<ul id="serviceList">`
         html += `
-        <H2 data-type="destination" data-destinationname="${destination.name}"
-        data-id="${destination.id}">${destination.name}</H2>`
+        <h2 data-type="destination" data-destinationname="${destination.name}"
+        data-id="${destination.id}">${destination.name}</h2>`
         const pairedServices = findDestinationServiceIds(destination.id)
 
         for (const pairing of pairedServices) {
             const serviceNames = getServiceNameById(pairing.servicesId)
-            html += `${serviceNames} <br>`
+            html += `<li class="serviceName">${serviceNames} </li>`
         }
-        
+        html+= `</ul>`
+        html+=`</div>`
         }
         
     

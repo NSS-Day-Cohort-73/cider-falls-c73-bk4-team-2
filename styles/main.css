@@ -1,0 +1,76 @@
+#container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 4em;
+}
+
+#guests-list {
+    line-height: 2em;
+    font-size: 1.5em;
+}
+
+#destinationCard {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2em;
+    
+}
+#serviceContainer {
+    display: flex;
+    flex-direction: column; 
+    border: 1px solid black;
+    border-radius: 2em;
+    padding: 1.5em;  
+    width: 20%;
+}
+
+#destinations-list {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 60%;
+
+}
+#destinationCard .title {
+    font-size: 1.5em;
+    text-decoration: bold;
+    text-shadow: 0 0 1px black;
+}
+#destinationCard #serviceList .serviceName {
+    font-size: 1rem !important;
+    text-shadow: 0 0 1px black;
+}
+.serviceName {
+    margin: 2em 0 
+}
+
+#services-list {
+    font-size: 1.5em;
+    margin-top: 5em;
+    margin-left: 2em;
+}
+footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: #698196;
+    margin-top: 4em;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    background-color: #698196;
+    margin: 1em 2em 1em 2em;
+
+}
+
+body {
+    background-color: #967E69;
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+#logo {
+    width: 6em;
+    margin-right: 2em;
+}
