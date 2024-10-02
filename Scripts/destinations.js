@@ -1,7 +1,9 @@
-import { getDestinations, getServices, getServicesDestinations } from "./database.js"
+import { getDestinations, getServices, getServicesDestinations, getGuests } from "./database.js"
 const destinations = getDestinations()
 const services = getServices()
 const pairings = getServicesDestinations()
+const guests = getGuests ()
+ 
 
 export const findDestinationServiceIds = (id) => {
     let destinationsPaired = []
@@ -30,11 +32,30 @@ const getServiceNameById = (id) => {
     }
 }
 
+
+document.addEventListener(
+
+    "click",
+    (theDestinationClick) => {
+        const destinationTarget = theDestinationClick.target
+        if (destinationTarget.dataset.type === "destination") { 
+            const guestList = guests.filter(g => g.destinationId === parseInt(destinationTarget.dataset.id))
+            if (guestList) {
+                const guestNames= guestList.map (guest => guest.name).join(", ")
+            window.alert(`${guestNames}`)
+            }
+        }
+    }
+
+)
+
 export const destinationList= () => {
     let html = `<section>`
     
     for (const destination of destinations) {
-        html += `<H2>${destination.name}</H2>`
+        html += `
+        <H2 data-type="destination" data-destinationname="${destination.name}"
+        data-id="${destination.id}">${destination.name}</H2>`
         const pairedServices = findDestinationServiceIds(destination.id)
 
         for (const pairing of pairedServices) {
