@@ -54,11 +54,11 @@ export const destinationList= () => {
     
     for (const destination of destinations) {
         html+= `<div id="serviceContainer"`
-        html += `<h2 class="title">${destination.name}</h2>`
+        html += `<h2 class="title"></h2>`
         html += `<ul id="serviceList">`
         html += `
-        <h2 data-type="destination" data-destinationname="${destination.name}"
-        data-id="${destination.id}">${destination.name}</h2>`
+        <h4 data-type="destination"
+        data-id="${destination.id}">${destination.name}</h4>`
         const pairedServices = findDestinationServiceIds(destination.id)
 
         for (const pairing of pairedServices) {

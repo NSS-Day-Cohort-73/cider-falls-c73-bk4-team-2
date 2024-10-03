@@ -74,3 +74,8 @@ body {
     width: 6em;
     margin-right: 2em;
 }
+
+h4 {
+    color: rgb(234, 228, 228);
+    justify-content: left;
+}

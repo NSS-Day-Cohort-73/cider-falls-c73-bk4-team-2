@@ -9,7 +9,7 @@ export const serviceList = () => {
 
     for (const service of useServices) {
         serviceHTML += `
-        <span data-id="${service.id}" data-name="${service.name}">
+        <span class="service" data-id="${service.id}" data-name="${service.name}">
         ${service.name}, 
         </span>`
     }
@@ -22,9 +22,8 @@ document.addEventListener(
     (clickEvent) => {
     // Check if the clicked element is a service
     const clickTarget = clickEvent.target
-    if (clickEvent.target.classList.contains("service")) {
-        const serviceId = parseInt(clickEvent.target.getAttribute("data-id"));
-
+    if (clickTarget.classList.contains("service")) {
+        const serviceId = parseInt(clickTarget.dataset.id);
 
         let destinationNames = [];
 
@@ -33,12 +32,12 @@ document.addEventListener(
                 // Find the destination that matches this pairing
                 const destination = destinations.find(dest => dest.id === pairing.destinationsId);
                 if (destination) {
-                    destinationNames.push(destination.name); // Add the destination name to the array
+                    destinationNames.push(destination.name);
                 }
             }
         }
 
         // Create a message to display
-            window.alert(`${clickTarget.dataset.name} is offered at: ${destinationNames.join(", ")}`)
+        window.alert(`${clickTarget.dataset.name} is offered at: ${destinationNames.join(", ")}`)
     }
 });
